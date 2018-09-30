@@ -14,6 +14,8 @@ This test chows that GPUs can be much faster that CPUs even for sequential analy
 
 Moreover, the cuDNN library provides extra GPU speed over the standard TensorFlow RNN libraries.
 
+Note that TensorFlow wasn't necessarily designed to switch between CPUs and GPUs on the fly, and there can be glitches in doing so. This is why the main benchmarking file permutes the ordering of the test runs with this line: `for (config in c(2, 3, 1)) {`
+
 <div>
 <figure >
 <img style="border:1px solid; border-color:#daa520ff; margin-left:auto;margin-right:auto;text-align: center;" src="https://hergott.github.io/assets/img/gpu_speed/sample_results.png" alt="CPU < GPU < GPU+cuDNN" />
