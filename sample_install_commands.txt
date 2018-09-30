@@ -1,6 +1,7 @@
 There are multiple ways to access TensorFlow from R.
 
-The benchmarking demo on this GitHub repository relies on R being able to find an existing Anaconda environment that already has TensorFlow installed.
+The benchmarking demo on this GitHub repository relies on R being able to find an existing Anaconda environment
+that already has TensorFlow installed.
 
 These are the main steps for creating such a Conda environment. Note that these commands vary by operating system.
 
@@ -11,7 +12,8 @@ conda create -n r-tensorflow pip python=3.6
 source activate r-tensorflow
 
 
-2. Populate new Conda environment. This gives a relatively complete Conda environment--some of these libraries are unnecessary at first, but may be useful later on.
+2. Populate new Conda environment. This gives a relatively complete Conda environment--some of these libraries
+are unnecessary at first, but may be useful later on.
 
 conda install numpy
 conda install scipy
