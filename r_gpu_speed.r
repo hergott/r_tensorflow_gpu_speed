@@ -4,9 +4,9 @@
 # Reticulate package used to set Python and Numpy random seeds:
 # https://cran.r-project.org/web/packages/reticulate/index.html
 #
-#install.packages("tensorflow")
-#install.packages("reticulate")
-#install.packages("RColorBrewer")
+install.packages("tensorflow")
+install.packages("reticulate")
+install.packages("RColorBrewer")
  
 
 # This way of using TensorFlow with R utilizes an Anaconda environment that has all the
