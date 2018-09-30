@@ -14,4 +14,10 @@ This test chows that GPUs can be much faster that CPUs even for sequential analy
 
 Moreover, the cuDNN library provides extra GPU speed over the standard TensorFlow RNN libraries.
 
-![CPU < GPU < GPU+cuDNN](https://github.com/hergott/r_tensorflow_gpu_speed/sample_results.png)
+<div>
+<figure >
+<img style="border:1px solid; border-color:#daa520ff; margin-left:auto;margin-right:auto;text-align: center;" src="https://github.com/hergott/r_tensorflow_gpu_speed/sample_results.png" alt="CPU < GPU < GPU+cuDNN" />
+<figcaption style="color: #156e82; text-align: center; font-size:100%; font-style: italic; font-weight:normal;margin-left:auto;margin-right:auto;"></figcaption>
+</figure> 
+</div>
+[CPU < GPU < GPU+cuDNN](https://github.com/hergott/r_tensorflow_gpu_speed/sample_results.png)
