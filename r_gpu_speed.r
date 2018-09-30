@@ -145,7 +145,7 @@ tf_speed_test <- function(){
     cat("\nLosses:\n")
     print(epoch_losses)
     
-    # Chart losses.
+    # Chart results.
     #
     # Please note that cuDNN uses a slightly different RNN formulation,
     # so the raw numbers aren't directly comparable.
