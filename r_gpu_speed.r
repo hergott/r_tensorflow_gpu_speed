@@ -81,7 +81,7 @@ tf_speed_test <- function(){
     use_GPU <- c(FALSE, TRUE, TRUE)
     use_cudNN <- c(FALSE, FALSE, TRUE)
 
-    for (config in 2:3) {
+    for (config in 1:3) {
         cat("\n", "Starting session for ", labels[config], ".", "\n", sep = "")
         
         tf$reset_default_graph()
