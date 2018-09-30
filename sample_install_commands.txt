@@ -6,13 +6,16 @@ that already has TensorFlow installed.
 These are the main steps for creating such a Conda environment. Note that these commands vary by operating system.
 
 
-1. Create and activate new Anaconda environment:
+1. The CUDA® Toolkit must be installed first. This requires a CUDA-enabled GPU card. For detailed instructions see this page: [https://www.tensorflow.org/install/gpu](https://www.tensorflow.org/install/gpu)
+
+
+2. Create and activate new Anaconda environment:
 
 conda create -n r-tensorflow pip python=3.6
 source activate r-tensorflow
 
 
-2. Populate new Conda environment. This gives a relatively complete Conda environment--some of these libraries
+3. Populate new Conda environment. This gives a relatively complete Conda environment--some of these libraries
 are unnecessary at first, but may be useful later on.
 
 conda install numpy
