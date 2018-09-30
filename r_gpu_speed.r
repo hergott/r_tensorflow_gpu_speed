@@ -4,9 +4,9 @@
 # Reticulate package used to set Python and Numpy random seeds:
 # https://cran.r-project.org/web/packages/reticulate/index.html
 #
-install.packages("tensorflow")
-install.packages("reticulate")
-install.packages("RColorBrewer")
+#install.packages("tensorflow")
+#install.packages("reticulate")
+#install.packages("RColorBrewer")
  
 
 # This way of using TensorFlow with R utilizes an Anaconda environment that has all the
@@ -67,8 +67,8 @@ tf_speed_test <- function(){
 
     # Dimensions: larger RNNs should increase relative advantage of GPU and cuDNN.
     sequence_dim <- 128L
-    sequence_len <- 32L
-    n_samples <- 2048L
+    sequence_len <- 64L
+    n_samples <- 1024L
     n_epochs <- 50
     n_rnn_units <- 512L
 
@@ -81,7 +81,7 @@ tf_speed_test <- function(){
     use_GPU <- c(FALSE, TRUE, TRUE)
     use_cudNN <- c(FALSE, FALSE, TRUE)
 
-    for (config in 1:3) {
+    for (config in c(2, 3, 1)) {
         cat("\n", "Starting session for ", labels[config], ".", "\n", sep = "")
         
         tf$reset_default_graph()
@@ -145,7 +145,7 @@ tf_speed_test <- function(){
     cat("\nLosses:\n")
     print(epoch_losses)
     
-    # Chart results.
+    # Chart losses.
     #
     # Please note that cuDNN uses a slightly different RNN formulation,
     # so the raw numbers aren't directly comparable.

@@ -1,300 +1,304 @@
-Sample R+TensorFlow output using: (a) Adam optimizer with default TensorFlow settings, and (b) a recurrent neural network (RNN) filled with random data of these dimensions:
+Sample R+TensorFlow output using (a) 50 epochs of Adam optimizer with default settings, and (b) recurrent neural network (RNN) with these dimensions:
 
     sequence_dim <- 128L
-    sequence_len <- 32L
-    n_samples <- 2048L
+    sequence_len <- 64L
+    n_samples <- 1024L
     n_epochs <- 50
     n_rnn_units <- 512L
 
-Output:
+
+
+Console output:
+
 
 > source('r_gpu_speed.r')
 
-Starting session for CPU.
-Use GPU: FALSE[1] "NOT USING GPU"
-2018-09-30 01:37:58.298108: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971] Device interconnect StreamExecutor with strength 1 edge matrix:
-2018-09-30 01:37:58.298152: I tensorflow/core/common_runtime/gpu/gpu_device.cc:977]      
-2018-09-30 01:37:58.420505: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:344] Starting optimization for grappler item: tf_graph
-2018-09-30 01:37:59.180904: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:344] Starting optimization for grappler item: tf_graph
-2018-09-30 01:38:05.140840: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:344] Starting optimization for grappler item: tf_graph
-session: CPU      epoch: 1      time: 7.634      loss: 0.6738
-session: CPU      epoch: 2      time: 6.033      loss: 0.64916
-session: CPU      epoch: 3      time: 6.047      loss: 0.61297
-session: CPU      epoch: 4      time: 7.342      loss: 0.55603
-session: CPU      epoch: 5      time: 7.489      loss: 0.50673
-session: CPU      epoch: 6      time: 7.51      loss: 0.46039
-session: CPU      epoch: 7      time: 7.514      loss: 0.39991
-session: CPU      epoch: 8      time: 7.535      loss: 0.34311
-session: CPU      epoch: 9      time: 7.532      loss: 0.28529
-session: CPU      epoch: 10      time: 7.528      loss: 0.23345
-session: CPU      epoch: 11      time: 7.55      loss: 0.1848
-session: CPU      epoch: 12      time: 7.57      loss: 0.12796
-session: CPU      epoch: 13      time: 7.545      loss: 0.09062
-session: CPU      epoch: 14      time: 7.558      loss: 0.06414
-session: CPU      epoch: 15      time: 7.558      loss: 0.02721
-session: CPU      epoch: 16      time: 7.562      loss: 0.02206
-session: CPU      epoch: 17      time: 7.57      loss: 0.00691
-session: CPU      epoch: 18      time: 7.559      loss: 0.01082
-session: CPU      epoch: 19      time: 7.548      loss: 0.00072
-session: CPU      epoch: 20      time: 7.577      loss: 0.01951
-session: CPU      epoch: 21      time: 7.576      loss: 0.0014
-session: CPU      epoch: 22      time: 7.552      loss: 0.12544
-session: CPU      epoch: 23      time: 7.575      loss: 0.00069
-session: CPU      epoch: 24      time: 7.563      loss: 0.22346
-session: CPU      epoch: 25      time: 7.541      loss: 0.00131
-session: CPU      epoch: 26      time: 7.542      loss: 0.00992
-session: CPU      epoch: 27      time: 7.557      loss: 0.04331
-session: CPU      epoch: 28      time: 7.542      loss: 0.04353
-session: CPU      epoch: 29      time: 7.525      loss: 0.02883
-session: CPU      epoch: 30      time: 7.557      loss: 0.02397
-session: CPU      epoch: 31      time: 7.551      loss: 0.02672
-session: CPU      epoch: 32      time: 7.569      loss: 0.03134
-session: CPU      epoch: 33      time: 7.514      loss: 0.02629
-session: CPU      epoch: 34      time: 7.541      loss: 0.01672
-session: CPU      epoch: 35      time: 7.538      loss: 0.01123
-session: CPU      epoch: 36      time: 7.545      loss: 0.0087
-session: CPU      epoch: 37      time: 7.537      loss: 0.00721
-session: CPU      epoch: 38      time: 7.553      loss: 0.00595
-session: CPU      epoch: 39      time: 7.514      loss: 0.00478
-session: CPU      epoch: 40      time: 7.54      loss: 0.00375
-session: CPU      epoch: 41      time: 7.564      loss: 0.00293
-session: CPU      epoch: 42      time: 7.529      loss: 0.00232
-session: CPU      epoch: 43      time: 7.535      loss: 0.00186
-session: CPU      epoch: 44      time: 7.532      loss: 0.0015
-session: CPU      epoch: 45      time: 7.578      loss: 0.0012
-session: CPU      epoch: 46      time: 7.541      loss: 0.00096
-session: CPU      epoch: 47      time: 7.573      loss: 0.00077
-session: CPU      epoch: 48      time: 7.708      loss: 0.00062
-session: CPU      epoch: 49      time: 7.717      loss: 0.00051
-session: CPU      epoch: 50      time: 7.521      loss: 0.00042
-
 Starting session for GPU + CUDA.
 Use GPU: TRUE[1] "USING GPU"
-2018-09-30 01:44:15.859249: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1490] Adding visible gpu devices: 0
-2018-09-30 01:44:15.859321: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971] Device interconnect StreamExecutor with strength 1 edge matrix:
-2018-09-30 01:44:15.859344: I tensorflow/core/common_runtime/gpu/gpu_device.cc:977]      0 
-2018-09-30 01:44:15.859364: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990] 0:   N 
-2018-09-30 01:44:15.859506: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1103] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 1442 MB memory) -> physical GPU (device: 0, name: GeForce GT 750M, pci bus id: 0000:04:00.0, compute capability: 3.0)
-2018-09-30 01:44:15.982019: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:344] Starting optimization for grappler item: tf_graph
-2018-09-30 01:44:16.701712: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:344] Starting optimization for grappler item: tf_graph
-2018-09-30 01:44:19.479338: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:344] Starting optimization for grappler item: tf_graph
-session: GPU + CUDA      epoch: 1      time: 3.548      loss: 0.6738
-session: GPU + CUDA      epoch: 2      time: 2.019      loss: 0.64916
-session: GPU + CUDA      epoch: 3      time: 2.016      loss: 0.61297
-session: GPU + CUDA      epoch: 4      time: 2.012      loss: 0.55603
-session: GPU + CUDA      epoch: 5      time: 2.017      loss: 0.50673
-session: GPU + CUDA      epoch: 6      time: 2.018      loss: 0.46039
-session: GPU + CUDA      epoch: 7      time: 2.024      loss: 0.39991
-session: GPU + CUDA      epoch: 8      time: 2.03      loss: 0.34311
-session: GPU + CUDA      epoch: 9      time: 2.11      loss: 0.28529
-session: GPU + CUDA      epoch: 10      time: 2.024      loss: 0.23345
-session: GPU + CUDA      epoch: 11      time: 2.022      loss: 0.1848
-session: GPU + CUDA      epoch: 12      time: 2.018      loss: 0.12796
-session: GPU + CUDA      epoch: 13      time: 2.017      loss: 0.09062
-session: GPU + CUDA      epoch: 14      time: 2.04      loss: 0.06413
-session: GPU + CUDA      epoch: 15      time: 2.098      loss: 0.02721
-session: GPU + CUDA      epoch: 16      time: 2.017      loss: 0.02206
-session: GPU + CUDA      epoch: 17      time: 2.017      loss: 0.00691
-session: GPU + CUDA      epoch: 18      time: 2.019      loss: 0.01082
-session: GPU + CUDA      epoch: 19      time: 2.017      loss: 0.00072
-session: GPU + CUDA      epoch: 20      time: 2.02      loss: 0.01952
-session: GPU + CUDA      epoch: 21      time: 2.021      loss: 0.0014
-session: GPU + CUDA      epoch: 22      time: 2.019      loss: 0.12552
-session: GPU + CUDA      epoch: 23      time: 2.024      loss: 0.00069
-session: GPU + CUDA      epoch: 24      time: 2.017      loss: 0.22354
-session: GPU + CUDA      epoch: 25      time: 2.017      loss: 0.00131
-session: GPU + CUDA      epoch: 26      time: 2.018      loss: 0.0099
-session: GPU + CUDA      epoch: 27      time: 2.017      loss: 0.04326
-session: GPU + CUDA      epoch: 28      time: 2.017      loss: 0.04353
-session: GPU + CUDA      epoch: 29      time: 2.019      loss: 0.02886
-session: GPU + CUDA      epoch: 30      time: 2.019      loss: 0.02398
-session: GPU + CUDA      epoch: 31      time: 2.018      loss: 0.02672
-session: GPU + CUDA      epoch: 32      time: 2.016      loss: 0.03133
-session: GPU + CUDA      epoch: 33      time: 2.018      loss: 0.0263
-session: GPU + CUDA      epoch: 34      time: 2.02      loss: 0.01674
-session: GPU + CUDA      epoch: 35      time: 2.02      loss: 0.01124
-session: GPU + CUDA      epoch: 36      time: 2.019      loss: 0.00871
-session: GPU + CUDA      epoch: 37      time: 2.017      loss: 0.00721
-session: GPU + CUDA      epoch: 38      time: 2.016      loss: 0.00596
-session: GPU + CUDA      epoch: 39      time: 2.019      loss: 0.00478
-session: GPU + CUDA      epoch: 40      time: 2.017      loss: 0.00375
-session: GPU + CUDA      epoch: 41      time: 2.021      loss: 0.00293
-session: GPU + CUDA      epoch: 42      time: 2.018      loss: 0.00231
-session: GPU + CUDA      epoch: 43      time: 2.017      loss: 0.00186
-session: GPU + CUDA      epoch: 44      time: 2.018      loss: 0.0015
-session: GPU + CUDA      epoch: 45      time: 2.019      loss: 0.0012
-session: GPU + CUDA      epoch: 46      time: 2.019      loss: 0.00096
-session: GPU + CUDA      epoch: 47      time: 2.025      loss: 0.00077
-session: GPU + CUDA      epoch: 48      time: 2.019      loss: 0.00062
-session: GPU + CUDA      epoch: 49      time: 2.018      loss: 0.00051
-session: GPU + CUDA      epoch: 50      time: 2.017      loss: 0.00042
+2018-09-30 13:39:52.500322: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1490] Adding visible gpu devices: 0
+2018-09-30 13:39:52.500398: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-09-30 13:39:52.500411: I tensorflow/core/common_runtime/gpu/gpu_device.cc:977]      0 
+2018-09-30 13:39:52.500424: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990] 0:   N 
+2018-09-30 13:39:52.500542: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1103] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 1459 MB memory) -> physical GPU (device: 0, name: GeForce GT 750M, pci bus id: 0000:04:00.0, compute capability: 3.0)
+2018-09-30 13:39:52.760957: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:344] Starting optimization for grappler item: tf_graph
+2018-09-30 13:39:53.498068: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:344] Starting optimization for grappler item: tf_graph
+2018-09-30 13:39:57.451528: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:344] Starting optimization for grappler item: tf_graph
+session: GPU + CUDA      epoch: 1      time: 4.864      loss: 0.66284
+session: GPU + CUDA      epoch: 2      time: 2.048      loss: 0.62487
+session: GPU + CUDA      epoch: 3      time: 2.054      loss: 0.56007
+session: GPU + CUDA      epoch: 4      time: 2.051      loss: 0.50452
+session: GPU + CUDA      epoch: 5      time: 2.049      loss: 0.44621
+session: GPU + CUDA      epoch: 6      time: 2.051      loss: 0.43248
+session: GPU + CUDA      epoch: 7      time: 2.053      loss: 0.3713
+session: GPU + CUDA      epoch: 8      time: 2.08      loss: 0.2773
+session: GPU + CUDA      epoch: 9      time: 2.204      loss: 0.1952
+session: GPU + CUDA      epoch: 10      time: 2.044      loss: 0.16505
+session: GPU + CUDA      epoch: 11      time: 2.065      loss: 0.09794
+session: GPU + CUDA      epoch: 12      time: 2.044      loss: 0.08989
+session: GPU + CUDA      epoch: 13      time: 2.048      loss: 0.03927
+session: GPU + CUDA      epoch: 14      time: 2.138      loss: 0.01723
+session: GPU + CUDA      epoch: 15      time: 2.124      loss: 0.01727
+session: GPU + CUDA      epoch: 16      time: 2.072      loss: 0.01284
+session: GPU + CUDA      epoch: 17      time: 2.105      loss: 0.00478
+session: GPU + CUDA      epoch: 18      time: 2.115      loss: 0.00286
+session: GPU + CUDA      epoch: 19      time: 2.094      loss: 0.00138
+session: GPU + CUDA      epoch: 20      time: 2.084      loss: 0.00089
+session: GPU + CUDA      epoch: 21      time: 2.135      loss: 0.00087
+session: GPU + CUDA      epoch: 22      time: 2.091      loss: 0.00114
+session: GPU + CUDA      epoch: 23      time: 2.094      loss: 0.00077
+session: GPU + CUDA      epoch: 24      time: 2.09      loss: 0.00053
+session: GPU + CUDA      epoch: 25      time: 2.064      loss: 0.00039
+session: GPU + CUDA      epoch: 26      time: 2.098      loss: 0.00028
+session: GPU + CUDA      epoch: 27      time: 2.105      loss: 2e-04
+session: GPU + CUDA      epoch: 28      time: 2.219      loss: 0.00014
+session: GPU + CUDA      epoch: 29      time: 2.11      loss: 1e-04
+session: GPU + CUDA      epoch: 30      time: 2.122      loss: 7e-05
+session: GPU + CUDA      epoch: 31      time: 2.108      loss: 5e-05
+session: GPU + CUDA      epoch: 32      time: 2.082      loss: 4e-05
+session: GPU + CUDA      epoch: 33      time: 2.044      loss: 3e-05
+session: GPU + CUDA      epoch: 34      time: 2.052      loss: 2e-05
+session: GPU + CUDA      epoch: 35      time: 2.091      loss: 2e-05
+session: GPU + CUDA      epoch: 36      time: 2.074      loss: 2e-05
+session: GPU + CUDA      epoch: 37      time: 2.077      loss: 2e-05
+session: GPU + CUDA      epoch: 38      time: 2.105      loss: 2e-05
+session: GPU + CUDA      epoch: 39      time: 2.068      loss: 1e-05
+session: GPU + CUDA      epoch: 40      time: 2.061      loss: 1e-05
+session: GPU + CUDA      epoch: 41      time: 2.084      loss: 1e-05
+session: GPU + CUDA      epoch: 42      time: 2.057      loss: 1e-05
+session: GPU + CUDA      epoch: 43      time: 2.079      loss: 1e-05
+session: GPU + CUDA      epoch: 44      time: 2.117      loss: 1e-05
+session: GPU + CUDA      epoch: 45      time: 2.18      loss: 1e-05
+session: GPU + CUDA      epoch: 46      time: 2.069      loss: 1e-05
+session: GPU + CUDA      epoch: 47      time: 2.068      loss: 1e-05
+session: GPU + CUDA      epoch: 48      time: 2.082      loss: 1e-05
+session: GPU + CUDA      epoch: 49      time: 2.14      loss: 0
+session: GPU + CUDA      epoch: 50      time: 2.141      loss: 0
 
 Starting session for GPU + CUDA + cuDNN.
 Use GPU: TRUE[1] "USING GPU"
-2018-09-30 01:45:59.669375: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1490] Adding visible gpu devices: 0
-2018-09-30 01:45:59.669426: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971] Device interconnect StreamExecutor with strength 1 edge matrix:
-2018-09-30 01:45:59.669437: I tensorflow/core/common_runtime/gpu/gpu_device.cc:977]      0 
-2018-09-30 01:45:59.669447: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990] 0:   N 
-2018-09-30 01:45:59.669577: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1103] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 1442 MB memory) -> physical GPU (device: 0, name: GeForce GT 750M, pci bus id: 0000:04:00.0, compute capability: 3.0)
-2018-09-30 01:45:59.689274: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:344] Starting optimization for grappler item: tf_graph
-2018-09-30 01:46:00.455239: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:344] Starting optimization for grappler item: tf_graph
-2018-09-30 01:46:01.658146: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:344] Starting optimization for grappler item: tf_graph
-session: GPU + CUDA + cuDNN      epoch: 1      time: 1.662      loss: 0.6724
-session: GPU + CUDA + cuDNN      epoch: 2      time: 1.519      loss: 0.64438
-session: GPU + CUDA + cuDNN      epoch: 3      time: 1.512      loss: 0.61527
-session: GPU + CUDA + cuDNN      epoch: 4      time: 1.515      loss: 0.58183
-session: GPU + CUDA + cuDNN      epoch: 5      time: 1.515      loss: 0.54187
-session: GPU + CUDA + cuDNN      epoch: 6      time: 1.515      loss: 0.49596
-session: GPU + CUDA + cuDNN      epoch: 7      time: 1.51      loss: 0.45204
-session: GPU + CUDA + cuDNN      epoch: 8      time: 1.513      loss: 0.39958
-session: GPU + CUDA + cuDNN      epoch: 9      time: 1.516      loss: 0.35364
-session: GPU + CUDA + cuDNN      epoch: 10      time: 1.515      loss: 0.29539
-session: GPU + CUDA + cuDNN      epoch: 11      time: 1.516      loss: 0.26135
-session: GPU + CUDA + cuDNN      epoch: 12      time: 1.513      loss: 0.20155
-session: GPU + CUDA + cuDNN      epoch: 13      time: 1.514      loss: 0.17871
-session: GPU + CUDA + cuDNN      epoch: 14      time: 1.513      loss: 0.13256
-session: GPU + CUDA + cuDNN      epoch: 15      time: 1.513      loss: 0.08456
-session: GPU + CUDA + cuDNN      epoch: 16      time: 1.519      loss: 0.07774
-session: GPU + CUDA + cuDNN      epoch: 17      time: 1.519      loss: 0.03409
-session: GPU + CUDA + cuDNN      epoch: 18      time: 1.517      loss: 0.02835
-session: GPU + CUDA + cuDNN      epoch: 19      time: 1.515      loss: 0.02202
-session: GPU + CUDA + cuDNN      epoch: 20      time: 1.514      loss: 0.01063
-session: GPU + CUDA + cuDNN      epoch: 21      time: 1.515      loss: 0.00558
-session: GPU + CUDA + cuDNN      epoch: 22      time: 1.514      loss: 0.00565
-session: GPU + CUDA + cuDNN      epoch: 23      time: 1.511      loss: 0.00164
-session: GPU + CUDA + cuDNN      epoch: 24      time: 1.513      loss: 0.00128
-session: GPU + CUDA + cuDNN      epoch: 25      time: 1.514      loss: 0.00134
-session: GPU + CUDA + cuDNN      epoch: 26      time: 1.512      loss: 0.00109
-session: GPU + CUDA + cuDNN      epoch: 27      time: 1.518      loss: 0.00082
-session: GPU + CUDA + cuDNN      epoch: 28      time: 1.512      loss: 0.00065
-session: GPU + CUDA + cuDNN      epoch: 29      time: 1.516      loss: 0.00053
-session: GPU + CUDA + cuDNN      epoch: 30      time: 1.515      loss: 0.00041
-session: GPU + CUDA + cuDNN      epoch: 31      time: 1.513      loss: 3e-04
-session: GPU + CUDA + cuDNN      epoch: 32      time: 1.514      loss: 2e-04
-session: GPU + CUDA + cuDNN      epoch: 33      time: 1.521      loss: 0.00013
-session: GPU + CUDA + cuDNN      epoch: 34      time: 1.515      loss: 9e-05
-session: GPU + CUDA + cuDNN      epoch: 35      time: 1.515      loss: 6e-05
-session: GPU + CUDA + cuDNN      epoch: 36      time: 1.514      loss: 4e-05
-session: GPU + CUDA + cuDNN      epoch: 37      time: 1.516      loss: 3e-05
-session: GPU + CUDA + cuDNN      epoch: 38      time: 1.512      loss: 2e-05
-session: GPU + CUDA + cuDNN      epoch: 39      time: 1.518      loss: 1e-05
-session: GPU + CUDA + cuDNN      epoch: 40      time: 1.514      loss: 1e-05
-session: GPU + CUDA + cuDNN      epoch: 41      time: 1.519      loss: 1e-05
-session: GPU + CUDA + cuDNN      epoch: 42      time: 1.514      loss: 1e-05
-session: GPU + CUDA + cuDNN      epoch: 43      time: 1.516      loss: 1e-05
-session: GPU + CUDA + cuDNN      epoch: 44      time: 1.517      loss: 1e-05
-session: GPU + CUDA + cuDNN      epoch: 45      time: 1.516      loss: 1e-05
-session: GPU + CUDA + cuDNN      epoch: 46      time: 1.512      loss: 1e-05
-session: GPU + CUDA + cuDNN      epoch: 47      time: 1.511      loss: 1e-05
-session: GPU + CUDA + cuDNN      epoch: 48      time: 1.514      loss: 0
-session: GPU + CUDA + cuDNN      epoch: 49      time: 1.519      loss: 0
-session: GPU + CUDA + cuDNN      epoch: 50      time: 1.519      loss: 0
+2018-09-30 13:41:41.131879: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1490] Adding visible gpu devices: 0
+2018-09-30 13:41:41.131933: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-09-30 13:41:41.131945: I tensorflow/core/common_runtime/gpu/gpu_device.cc:977]      0 
+2018-09-30 13:41:41.131954: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990] 0:   N 
+2018-09-30 13:41:41.132161: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1103] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 1459 MB memory) -> physical GPU (device: 0, name: GeForce GT 750M, pci bus id: 0000:04:00.0, compute capability: 3.0)
+2018-09-30 13:41:41.156064: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:344] Starting optimization for grappler item: tf_graph
+2018-09-30 13:41:41.940850: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:344] Starting optimization for grappler item: tf_graph
+2018-09-30 13:41:43.117621: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:344] Starting optimization for grappler item: tf_graph
+session: GPU + CUDA + cuDNN      epoch: 1      time: 1.626      loss: 0.66612
+session: GPU + CUDA + cuDNN      epoch: 2      time: 1.523      loss: 0.62949
+session: GPU + CUDA + cuDNN      epoch: 3      time: 1.528      loss: 0.59157
+session: GPU + CUDA + cuDNN      epoch: 4      time: 1.545      loss: 0.54899
+session: GPU + CUDA + cuDNN      epoch: 5      time: 1.531      loss: 0.49878
+session: GPU + CUDA + cuDNN      epoch: 6      time: 1.534      loss: 0.43911
+session: GPU + CUDA + cuDNN      epoch: 7      time: 1.525      loss: 0.37261
+session: GPU + CUDA + cuDNN      epoch: 8      time: 1.525      loss: 0.31604
+session: GPU + CUDA + cuDNN      epoch: 9      time: 1.54      loss: 0.25238
+session: GPU + CUDA + cuDNN      epoch: 10      time: 1.54      loss: 0.2012
+session: GPU + CUDA + cuDNN      epoch: 11      time: 1.526      loss: 0.13972
+session: GPU + CUDA + cuDNN      epoch: 12      time: 1.535      loss: 0.10582
+session: GPU + CUDA + cuDNN      epoch: 13      time: 1.524      loss: 0.07878
+session: GPU + CUDA + cuDNN      epoch: 14      time: 1.534      loss: 0.06003
+session: GPU + CUDA + cuDNN      epoch: 15      time: 1.532      loss: 0.02292
+session: GPU + CUDA + cuDNN      epoch: 16      time: 1.531      loss: 0.01624
+session: GPU + CUDA + cuDNN      epoch: 17      time: 1.517      loss: 0.01444
+session: GPU + CUDA + cuDNN      epoch: 18      time: 1.515      loss: 0.00368
+session: GPU + CUDA + cuDNN      epoch: 19      time: 1.565      loss: 0.00417
+session: GPU + CUDA + cuDNN      epoch: 20      time: 1.521      loss: 0.00471
+session: GPU + CUDA + cuDNN      epoch: 21      time: 1.517      loss: 0.00422
+session: GPU + CUDA + cuDNN      epoch: 22      time: 1.516      loss: 0.00258
+session: GPU + CUDA + cuDNN      epoch: 23      time: 1.519      loss: 0.02483
+session: GPU + CUDA + cuDNN      epoch: 24      time: 1.52      loss: 0.03615
+session: GPU + CUDA + cuDNN      epoch: 25      time: 1.514      loss: 0.09246
+session: GPU + CUDA + cuDNN      epoch: 26      time: 1.519      loss: 0.02592
+session: GPU + CUDA + cuDNN      epoch: 27      time: 1.515      loss: 0.00887
+session: GPU + CUDA + cuDNN      epoch: 28      time: 1.516      loss: 0.00696
+session: GPU + CUDA + cuDNN      epoch: 29      time: 1.519      loss: 0.00725
+session: GPU + CUDA + cuDNN      epoch: 30      time: 1.517      loss: 0.00831
+session: GPU + CUDA + cuDNN      epoch: 31      time: 1.514      loss: 0.00985
+session: GPU + CUDA + cuDNN      epoch: 32      time: 1.522      loss: 0.0114
+session: GPU + CUDA + cuDNN      epoch: 33      time: 1.518      loss: 0.01187
+session: GPU + CUDA + cuDNN      epoch: 34      time: 1.55      loss: 0.01071
+session: GPU + CUDA + cuDNN      epoch: 35      time: 1.645      loss: 0.00886
+session: GPU + CUDA + cuDNN      epoch: 36      time: 1.561      loss: 0.00716
+session: GPU + CUDA + cuDNN      epoch: 37      time: 1.576      loss: 0.00569
+session: GPU + CUDA + cuDNN      epoch: 38      time: 1.577      loss: 0.00446
+session: GPU + CUDA + cuDNN      epoch: 39      time: 1.572      loss: 0.00349
+session: GPU + CUDA + cuDNN      epoch: 40      time: 1.57      loss: 0.00277
+session: GPU + CUDA + cuDNN      epoch: 41      time: 1.573      loss: 0.00224
+session: GPU + CUDA + cuDNN      epoch: 42      time: 1.572      loss: 0.00184
+session: GPU + CUDA + cuDNN      epoch: 43      time: 1.575      loss: 0.00154
+session: GPU + CUDA + cuDNN      epoch: 44      time: 1.575      loss: 0.00131
+session: GPU + CUDA + cuDNN      epoch: 45      time: 1.569      loss: 0.00113
+session: GPU + CUDA + cuDNN      epoch: 46      time: 1.571      loss: 0.00099
+session: GPU + CUDA + cuDNN      epoch: 47      time: 1.525      loss: 0.00088
+session: GPU + CUDA + cuDNN      epoch: 48      time: 1.522      loss: 0.00079
+session: GPU + CUDA + cuDNN      epoch: 49      time: 1.521      loss: 0.00072
+session: GPU + CUDA + cuDNN      epoch: 50      time: 1.518      loss: 0.00066
+
+Starting session for CPU.
+Use GPU: FALSE[1] "NOT USING GPU"
+2018-09-30 13:43:03.891623: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-09-30 13:43:03.891661: I tensorflow/core/common_runtime/gpu/gpu_device.cc:977]      
+2018-09-30 13:43:04.188508: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:344] Starting optimization for grappler item: tf_graph
+2018-09-30 13:43:05.035640: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:344] Starting optimization for grappler item: tf_graph
+2018-09-30 13:43:13.031406: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:344] Starting optimization for grappler item: tf_graph
+session: CPU      epoch: 1      time: 10.322      loss: 0.66284
+session: CPU      epoch: 2      time: 7.295      loss: 0.62487
+session: CPU      epoch: 3      time: 7.416      loss: 0.56007
+session: CPU      epoch: 4      time: 7.346      loss: 0.50452
+session: CPU      epoch: 5      time: 6.213      loss: 0.44621
+session: CPU      epoch: 6      time: 7.412      loss: 0.43248
+session: CPU      epoch: 7      time: 7.405      loss: 0.3713
+session: CPU      epoch: 8      time: 7.433      loss: 0.2773
+session: CPU      epoch: 9      time: 7.408      loss: 0.1952
+session: CPU      epoch: 10      time: 7.422      loss: 0.16506
+session: CPU      epoch: 11      time: 7.412      loss: 0.09794
+session: CPU      epoch: 12      time: 7.434      loss: 0.08989
+session: CPU      epoch: 13      time: 7.5      loss: 0.03927
+session: CPU      epoch: 14      time: 7.509      loss: 0.01723
+session: CPU      epoch: 15      time: 7.502      loss: 0.01727
+session: CPU      epoch: 16      time: 7.452      loss: 0.01284
+session: CPU      epoch: 17      time: 7.432      loss: 0.00478
+session: CPU      epoch: 18      time: 7.526      loss: 0.00286
+session: CPU      epoch: 19      time: 7.405      loss: 0.00138
+session: CPU      epoch: 20      time: 7.402      loss: 0.00089
+session: CPU      epoch: 21      time: 7.414      loss: 0.00087
+session: CPU      epoch: 22      time: 7.41      loss: 0.00114
+session: CPU      epoch: 23      time: 7.414      loss: 0.00077
+session: CPU      epoch: 24      time: 7.43      loss: 0.00053
+session: CPU      epoch: 25      time: 7.42      loss: 0.00039
+session: CPU      epoch: 26      time: 7.445      loss: 0.00028
+session: CPU      epoch: 27      time: 7.409      loss: 2e-04
+session: CPU      epoch: 28      time: 7.422      loss: 0.00014
+session: CPU      epoch: 29      time: 7.439      loss: 1e-04
+session: CPU      epoch: 30      time: 7.425      loss: 7e-05
+session: CPU      epoch: 31      time: 7.53      loss: 5e-05
+session: CPU      epoch: 32      time: 7.474      loss: 4e-05
+session: CPU      epoch: 33      time: 7.419      loss: 3e-05
+session: CPU      epoch: 34      time: 7.448      loss: 2e-05
+session: CPU      epoch: 35      time: 7.41      loss: 2e-05
+session: CPU      epoch: 36      time: 7.425      loss: 2e-05
+session: CPU      epoch: 37      time: 7.437      loss: 2e-05
+session: CPU      epoch: 38      time: 7.44      loss: 2e-05
+session: CPU      epoch: 39      time: 7.539      loss: 1e-05
+session: CPU      epoch: 40      time: 7.443      loss: 1e-05
+session: CPU      epoch: 41      time: 7.502      loss: 1e-05
+session: CPU      epoch: 42      time: 7.414      loss: 1e-05
+session: CPU      epoch: 43      time: 7.424      loss: 1e-05
+session: CPU      epoch: 44      time: 7.434      loss: 1e-05
+session: CPU      epoch: 45      time: 7.43      loss: 1e-05
+session: CPU      epoch: 46      time: 7.492      loss: 1e-05
+session: CPU      epoch: 47      time: 7.456      loss: 1e-05
+session: CPU      epoch: 48      time: 7.439      loss: 1e-05
+session: CPU      epoch: 49      time: 7.439      loss: 0
+session: CPU      epoch: 50      time: 7.408      loss: 0
 
 Times:
-       [,1]  [,2]  [,3]
- [1,] 7.634 3.548 1.662
- [2,] 6.033 2.019 1.519
- [3,] 6.047 2.016 1.512
- [4,] 7.342 2.012 1.515
- [5,] 7.489 2.017 1.515
- [6,] 7.510 2.018 1.515
- [7,] 7.514 2.024 1.510
- [8,] 7.535 2.030 1.513
- [9,] 7.532 2.110 1.516
-[10,] 7.528 2.024 1.515
-[11,] 7.550 2.022 1.516
-[12,] 7.570 2.018 1.513
-[13,] 7.545 2.017 1.514
-[14,] 7.558 2.040 1.513
-[15,] 7.558 2.098 1.513
-[16,] 7.562 2.017 1.519
-[17,] 7.570 2.017 1.519
-[18,] 7.559 2.019 1.517
-[19,] 7.548 2.017 1.515
-[20,] 7.577 2.020 1.514
-[21,] 7.576 2.021 1.515
-[22,] 7.552 2.019 1.514
-[23,] 7.575 2.024 1.511
-[24,] 7.563 2.017 1.513
-[25,] 7.541 2.017 1.514
-[26,] 7.542 2.018 1.512
-[27,] 7.557 2.017 1.518
-[28,] 7.542 2.017 1.512
-[29,] 7.525 2.019 1.516
-[30,] 7.557 2.019 1.515
-[31,] 7.551 2.018 1.513
-[32,] 7.569 2.016 1.514
-[33,] 7.514 2.018 1.521
-[34,] 7.541 2.020 1.515
-[35,] 7.538 2.020 1.515
-[36,] 7.545 2.019 1.514
-[37,] 7.537 2.017 1.516
-[38,] 7.553 2.016 1.512
-[39,] 7.514 2.019 1.518
-[40,] 7.540 2.017 1.514
-[41,] 7.564 2.021 1.519
-[42,] 7.529 2.018 1.514
-[43,] 7.535 2.017 1.516
-[44,] 7.532 2.018 1.517
-[45,] 7.578 2.019 1.516
-[46,] 7.541 2.019 1.512
-[47,] 7.573 2.025 1.511
-[48,] 7.708 2.019 1.514
-[49,] 7.717 2.018 1.519
-[50,] 7.521 2.017 1.519
+        [,1]  [,2]  [,3]
+ [1,] 10.322 4.864 1.626
+ [2,]  7.295 2.048 1.523
+ [3,]  7.416 2.054 1.528
+ [4,]  7.346 2.051 1.545
+ [5,]  6.213 2.049 1.531
+ [6,]  7.412 2.051 1.534
+ [7,]  7.405 2.053 1.525
+ [8,]  7.433 2.080 1.525
+ [9,]  7.408 2.204 1.540
+[10,]  7.422 2.044 1.540
+[11,]  7.412 2.065 1.526
+[12,]  7.434 2.044 1.535
+[13,]  7.500 2.048 1.524
+[14,]  7.509 2.138 1.534
+[15,]  7.502 2.124 1.532
+[16,]  7.452 2.072 1.531
+[17,]  7.432 2.105 1.517
+[18,]  7.526 2.115 1.515
+[19,]  7.405 2.094 1.565
+[20,]  7.402 2.084 1.521
+[21,]  7.414 2.135 1.517
+[22,]  7.410 2.091 1.516
+[23,]  7.414 2.094 1.519
+[24,]  7.430 2.090 1.520
+[25,]  7.420 2.064 1.514
+[26,]  7.445 2.098 1.519
+[27,]  7.409 2.105 1.515
+[28,]  7.422 2.219 1.516
+[29,]  7.439 2.110 1.519
+[30,]  7.425 2.122 1.517
+[31,]  7.530 2.108 1.514
+[32,]  7.474 2.082 1.522
+[33,]  7.419 2.044 1.518
+[34,]  7.448 2.052 1.550
+[35,]  7.410 2.091 1.645
+[36,]  7.425 2.074 1.561
+[37,]  7.437 2.077 1.576
+[38,]  7.440 2.105 1.577
+[39,]  7.539 2.068 1.572
+[40,]  7.443 2.061 1.570
+[41,]  7.502 2.084 1.573
+[42,]  7.414 2.057 1.572
+[43,]  7.424 2.079 1.575
+[44,]  7.434 2.117 1.575
+[45,]  7.430 2.180 1.569
+[46,]  7.492 2.069 1.571
+[47,]  7.456 2.068 1.525
+[48,]  7.439 2.082 1.522
+[49,]  7.439 2.140 1.521
+[50,]  7.408 2.141 1.518
 
 Losses:
               [,1]         [,2]         [,3]
- [1,] 0.6737964153 0.6737962961 6.723977e-01
- [2,] 0.6491644382 0.6491644382 6.443781e-01
- [3,] 0.6129660606 0.6129660606 6.152688e-01
- [4,] 0.5560328960 0.5560328960 5.818319e-01
- [5,] 0.5067303181 0.5067302585 5.418740e-01
- [6,] 0.4603886604 0.4603886008 4.959580e-01
- [7,] 0.3999145329 0.3999144137 4.520420e-01
- [8,] 0.3431095183 0.3431095481 3.995771e-01
- [9,] 0.2852873802 0.2852871120 3.536363e-01
-[10,] 0.2334532142 0.2334531248 2.953887e-01
-[11,] 0.1848046035 0.1848042160 2.613471e-01
-[12,] 0.1279640049 0.1279641092 2.015486e-01
-[13,] 0.0906165987 0.0906159058 1.787072e-01
-[14,] 0.0641354471 0.0641349778 1.325552e-01
-[15,] 0.0272063576 0.0272060987 8.455926e-02
-[16,] 0.0220587365 0.0220581703 7.773846e-02
-[17,] 0.0069050840 0.0069055092 3.409112e-02
-[18,] 0.0108229565 0.0108225690 2.834838e-02
-[19,] 0.0007210329 0.0007210525 2.202293e-02
-[20,] 0.0195108224 0.0195169281 1.062848e-02
-[21,] 0.0013984670 0.0013997413 5.580049e-03
-[22,] 0.1254396290 0.1255194694 5.654198e-03
-[23,] 0.0006891422 0.0006894742 1.642103e-03
-[24,] 0.2234607637 0.2235441208 1.277730e-03
-[25,] 0.0013070919 0.0013081764 1.340823e-03
-[26,] 0.0099193966 0.0099048819 1.093390e-03
-[27,] 0.0433095917 0.0432616286 8.236987e-04
-[28,] 0.0435262099 0.0435327403 6.540197e-04
-[29,] 0.0288324021 0.0288554393 5.280601e-04
-[30,] 0.0239674076 0.0239799079 4.107356e-04
-[31,] 0.0267241150 0.0267202836 2.991145e-04
-[32,] 0.0313433558 0.0313297585 2.041317e-04
-[33,] 0.0262905397 0.0262988098 1.334321e-04
-[34,] 0.0167209841 0.0167365149 8.595543e-05
-[35,] 0.0112265684 0.0112366723 5.593271e-05
-[36,] 0.0087003354 0.0087062707 3.740786e-05
-[37,] 0.0072088707 0.0072126193 2.598580e-05
-[38,] 0.0059536430 0.0059560332 1.884813e-05
-[39,] 0.0047793258 0.0047806585 1.429343e-05
-[40,] 0.0037471380 0.0037476332 1.131527e-05
-[41,] 0.0029269145 0.0029268304 9.317750e-06
-[42,] 0.0023151762 0.0023148283 7.943633e-06
-[43,] 0.0018561563 0.0018558357 6.974720e-06
-[44,] 0.0014962096 0.0014960954 6.274817e-06
-[45,] 0.0012033631 0.0012034967 5.756955e-06
-[46,] 0.0009638167 0.0009641330 5.364349e-06
-[47,] 0.0007716495 0.0007720516 5.059095e-06
-[48,] 0.0006213251 0.0006217353 4.815392e-06
-[49,] 0.0005058171 0.0005061936 4.615372e-06
-[50,] 0.0004177077 0.0004180354 4.446465e-06
+ [1,] 6.628351e-01 6.628352e-01 0.6661153436
+ [2,] 6.248702e-01 6.248703e-01 0.6294876933
+ [3,] 5.600702e-01 5.600702e-01 0.5915721655
+ [4,] 5.045197e-01 5.045196e-01 0.5489862561
+ [5,] 4.462098e-01 4.462098e-01 0.4987849593
+ [6,] 4.324807e-01 4.324807e-01 0.4391134083
+ [7,] 3.713045e-01 3.713045e-01 0.3726065159
+ [8,] 2.772969e-01 2.772967e-01 0.3160429597
+ [9,] 1.951962e-01 1.951962e-01 0.2523822486
+[10,] 1.650551e-01 1.650544e-01 0.2011989951
+[11,] 9.794226e-02 9.794219e-02 0.1397167891
+[12,] 8.989330e-02 8.989285e-02 0.1058177352
+[13,] 3.926956e-02 3.926900e-02 0.0787830800
+[14,] 1.723036e-02 1.723005e-02 0.0600292534
+[15,] 1.726558e-02 1.726581e-02 0.0229160786
+[16,] 1.284043e-02 1.283991e-02 0.0162364561
+[17,] 4.781723e-03 4.781716e-03 0.0144440979
+[18,] 2.857855e-03 2.857806e-03 0.0036808187
+[19,] 1.382348e-03 1.382306e-03 0.0041677831
+[20,] 8.886242e-04 8.886091e-04 0.0047107502
+[21,] 8.713938e-04 8.713982e-04 0.0042154221
+[22,] 1.142013e-03 1.142021e-03 0.0025754957
+[23,] 7.664236e-04 7.664103e-04 0.0248272922
+[24,] 5.314946e-04 5.314900e-04 0.0361506827
+[25,] 3.935160e-04 3.935119e-04 0.0924573466
+[26,] 2.820005e-04 2.819965e-04 0.0259232000
+[27,] 1.964146e-04 1.964112e-04 0.0088677071
+[28,] 1.360105e-04 1.360078e-04 0.0069571990
+[29,] 9.558850e-05 9.558643e-05 0.0072509036
+[30,] 6.898818e-05 6.898662e-05 0.0083120037
+[31,] 5.122126e-05 5.122007e-05 0.0098457476
+[32,] 3.902935e-05 3.902846e-05 0.0113978582
+[33,] 3.054377e-05 3.054310e-05 0.0118700489
+[34,] 2.466924e-05 2.466875e-05 0.0107123516
+[35,] 2.066650e-05 2.066612e-05 0.0088551044
+[36,] 1.798815e-05 1.798786e-05 0.0071565667
+[37,] 1.621425e-05 1.621401e-05 0.0056873392
+[38,] 1.500599e-05 1.500581e-05 0.0044563087
+[39,] 1.407914e-05 1.407897e-05 0.0034921353
+[40,] 1.321107e-05 1.321092e-05 0.0027711473
+[41,] 1.226754e-05 1.226740e-05 0.0022387516
+[42,] 1.121115e-05 1.121104e-05 0.0018423380
+[43,] 1.007404e-05 1.007396e-05 0.0015423700
+[44,] 8.917743e-06 8.917679e-06 0.0013115022
+[45,] 7.805955e-06 7.805906e-06 0.0011312241
+[46,] 6.791211e-06 6.791182e-06 0.0009891393
+[47,] 5.907624e-06 5.907590e-06 0.0008769504
+[48,] 5.167984e-06 5.167956e-06 0.0007886132
+[49,] 4.566895e-06 4.566864e-06 0.0007183151
+[50,] 4.087547e-06 4.087515e-06 0.0006590087
+> 
 
 
 
